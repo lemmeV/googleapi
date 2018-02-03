@@ -1,4 +1,6 @@
-<?php require_once 'functions.php'; ?>
+<?php
+require_once 'DataBaseInteraction.php';
+require_once 'XmlData.php'; ?>
 
 <!DOCTYPE html >
 <head>
@@ -20,8 +22,8 @@
         <div class="col-sm-3">
             <p>
                 <?php
-                $result = new DataBaseInteraction();
-                $result -> select_data_from_db(); ?>
+                $result = new XmlData();
+                $result->getXml(); ?>
             </p>
 
         </div>

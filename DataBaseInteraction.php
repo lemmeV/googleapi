@@ -24,7 +24,7 @@ Class DataBaseInteraction {
 
     }
 
-    function select_data_from_db() {
+    public function select_data_from_db() {
 
         $connection = $this->connect_to_db();
 
@@ -32,20 +32,9 @@ Class DataBaseInteraction {
 
         $dataObject = $connection->query($sql);
 
-        if ($dataObject->num_rows > 0) {
-
-            while($row = $dataObject->fetch_assoc()) {
-                echo "id: " . $row["id"]. " - Name: " . $row["name"]. " " . $row["address"]. $row["lat"]. $row["lng"]. $row["type"]."<br>";
-            }
-        } else {
-
-            echo "0 results";
-        }
         $connection->close();
 
+        return $dataObject;
     }
-
-
-
 }
 
