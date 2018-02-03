@@ -1,26 +1,38 @@
+<?php require_once 'functions.php'; ?>
+
 <!DOCTYPE html >
 <head>
     <meta name="viewport" content="initial-scale=1.0, user-scalable=no" />
     <meta http-equiv="content-type" content="text/html; charset=UTF-8"/>
     <title>Using MySQL and PHP with Google Maps</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <style>
-        /* Always set the map height explicitly to define the size of the div
-         * element that contains the map. */
-        #map {
-            height: 100%;
-        }
-        /* Optional: Makes the sample page fill the window. */
-        html, body {
-            height: 100%;
-            margin: 0;
-            padding: 0;
-        }
+
     </style>
 </head>
 
 <body>
-<div id="map"></div>
 
+<div class="container-fluid">
+    <div class="row">
+        <div class="jumbotron">
+            <h1>Google Api integration exercise</h1>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-3">
+            <p>
+                <?php connect_to_db(); ?>
+            </p>
+
+        </div>
+        <div class="col-sm-9">
+            <div id="map" style="width:100%;height:500px;"></div>
+
+        </div>
+    </div>
+
+</div>
 <script>
     var customLabel = {
         restaurant: {
@@ -97,5 +109,8 @@
 <script async defer
         src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA7il0gjT7QiorW4jyzmkiM2Lhj16F_v7o&callback=initMap">
 </script>
+<script
+    src="http://code.jquery.com/jquery-1.12.4.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 </body>
 </html>
