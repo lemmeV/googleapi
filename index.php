@@ -4,11 +4,8 @@
 <head>
     <meta name="viewport" content="initial-scale=1.0, user-scalable=no" />
     <meta http-equiv="content-type" content="text/html; charset=UTF-8"/>
-    <title>Using MySQL and PHP with Google Maps</title>
+    <title>Google Api integration exercise</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-    <style>
-
-    </style>
 </head>
 
 <body>
@@ -22,7 +19,9 @@
     <div class="row">
         <div class="col-sm-3">
             <p>
-                <?php connect_to_db(); ?>
+                <?php
+                $result = new DataBaseInteraction();
+                $result -> select_data_from_db(); ?>
             </p>
 
         </div>
