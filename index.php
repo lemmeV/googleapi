@@ -1,7 +1,4 @@
-<?php
-require_once 'DataBaseInteraction.php';
-require_once 'XmlData.php'; ?>
-
+<?php require_once('config.php'); ?>
 <!DOCTYPE html >
 <head>
     <meta name="viewport" content="initial-scale=1.0, user-scalable=no" />
@@ -21,11 +18,20 @@ require_once 'XmlData.php'; ?>
     <div class="row">
         <div class="col-sm-3">
             <p>
-                <?php
-                $result = new XmlData();
-                $result->getXml(); ?>
+                <button id="start-db" class="btn btn-success">
+                    LOO ANDMEBAAS
+                </button>
             </p>
-
+            <p>
+                <button id="start-table" class="btn btn-success">
+                    LOO TABEL
+                </button>
+            </p>
+            <p>
+                <button id="start-data" class="btn btn-success">
+                    TÄIDA TABEL
+                </button>
+            </p>
         </div>
         <div class="col-sm-9">
             <div id="map" style="width:100%;height:500px;"></div>
@@ -52,7 +58,7 @@ require_once 'XmlData.php'; ?>
         var infoWindow = new google.maps.InfoWindow;
 
         // Change this depending on the name of your PHP or XML file
-        downloadUrl('https://storage.googleapis.com/mapsdevsite/json/mapmarkers2.xml', function(data) {
+        downloadUrl('xmldata.php', function(data) {
             var xml = data.responseXML;
             var markers = xml.documentElement.getElementsByTagName('marker');
             Array.prototype.forEach.call(markers, function(markerElem) {
@@ -87,8 +93,6 @@ require_once 'XmlData.php'; ?>
         });
     }
 
-
-
     function downloadUrl(url, callback) {
         var request = window.ActiveXObject ?
             new ActiveXObject('Microsoft.XMLHTTP') :
@@ -108,10 +112,11 @@ require_once 'XmlData.php'; ?>
     function doNothing() {}
 </script>
 <script async defer
-        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA7il0gjT7QiorW4jyzmkiM2Lhj16F_v7o&callback=initMap">
+        src="https://maps.googleapis.com/maps/api/js?key=<?php echo API_KEY; ?>&callback=initMap">
 </script>
 <script
     src="http://code.jquery.com/jquery-1.12.4.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<script src="js/ajax.js"></script>
 </body>
 </html>
